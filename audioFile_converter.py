@@ -20,7 +20,12 @@ btnMp3 = Button(root,text='CONVERTIR A .MP3',bg='red',fg='white',width=40)
 btnMp3.place(x=26,y=280)
 btnFlv = Button(root,text='CONVERTIR A .FLV',bg='red',fg='white',width=40)
 btnFlv.place(x=26,y=330)
-
+btnOgg = Button(root,text='CONVERTIR A .OGG',bg='red',fg='white',width=40)
+btnOgg.place(x=380,y=230)
+btnWma = Button(root,text='CONVERTIR A .WMA',bg='red',fg='white',width=40)
+btnWma.place(x=380,y=280)
+btnMp4 = Button(root,text='CONVERTIR A .MP4',bg='red',fg='white',width=40)
+btnMp4.place(x=380,y=330)
 
 
 root.mainloop()

@@ -14,7 +14,7 @@ def abrir_archivo(ex):
     elif ex == ".wav":
         audio = AudioSegment.from_wav(ruta)
     elif ex == ".flv":
-        audio = AudioSegment.from_mp3(ruta)
+        audio = AudioSegment.from_flv(ruta)
     else:
         audio = AudioSegment.from_file(ruta)
     print(audio)
@@ -66,7 +66,7 @@ btnFlv = Button(root,text='CONVERTIR A .FLV',activeforeground=actf,bg='red',fg='
 btnFlv.place(x=26,y=330)
 btnOgg = Button(root,text='CONVERTIR A .OGG',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("ogg"))
 btnOgg.place(x=380,y=230)
-btnWma = Button(root,text='CONVERTIR A .WMA',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("wma"))
+btnWma = Button(root,text='CONVERTIR A .MP2',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("mp2"))
 btnWma.place(x=380,y=280)
 btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("mp4"))
 btnMp4.place(x=380,y=330)

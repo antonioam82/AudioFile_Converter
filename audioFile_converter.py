@@ -35,8 +35,11 @@ def busca_archivo():
 
 def convert():
     if audio != "":
-        audio.export(nom+"."+ty,format=ty)
-        print("FIN")
+        try:
+            audio.export(nom+"."+ty,format=ty)
+            print("FIN")
+        except:
+            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AÑ REALIZAR LA OPERACIÓN")
 
 def inicia(tip):
     global ty
@@ -74,4 +77,5 @@ btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg=
 btnMp4.place(x=380,y=330)
 
 root.mainloop()
+
 

@@ -7,7 +7,9 @@ def busca_archivo():
     global archivo
     archivo = ""
     ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
-    print(ruta)
+    if ruta != "":
+        file = ruta.split("/")[-1]
+        etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
     
 
 root = tkinter.Tk()

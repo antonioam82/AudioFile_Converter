@@ -7,7 +7,7 @@ from pydub import AudioSegment
 
 def abrir_archivo(ex):
     global audio
-    try:
+    if ex in formatos:
         if ex == ".mp3":
             audio = AudioSegment.from_mp3(ruta)
         elif ex == ".ogg":
@@ -18,13 +18,11 @@ def abrir_archivo(ex):
             audio = AudioSegment.from_flv(ruta)
         else:
             audio = AudioSegment.from_file(ruta)
-    except:
-        messagebox.showwarning("ERROR","NO PUDO ABRIRSE EL ARCHIVO")
-    print(audio)
+    else:
+        messagebox.showwarning("ERROR","ARCHIVO NO SOPORTADO")
     
-
 def busca_archivo():
-    global nom, ruta
+    global nom, ex, ruta
     file = ""
     ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
     if ruta != "":
@@ -43,7 +41,7 @@ def inicia(tip):
     ty=tip
     t = threading.Thread(target=convert)
     t.start()
-    
+
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
@@ -51,6 +49,7 @@ root.geometry("700x500")
 actf = 'red'
 audio = ""
 ty = ""
+formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4"]
 
 etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
                 fg="red",width=91,height=2)

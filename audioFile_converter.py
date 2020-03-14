@@ -19,8 +19,10 @@ def abrir_archivo(ex):
         else:
             audio = AudioSegment.from_file(ruta)
     else:
-        messagebox.showwarning("ERROR","ARCHIVO NO SOPORTADO")
+        messagebox.showwarning("ERROR","FORMATO NO SOPORTADO")
+    print(audio)
     
+
 def busca_archivo():
     global nom, ex, ruta
     file = ""
@@ -46,11 +48,11 @@ root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
 root.geometry("700x500")
-actf = 'red'
 audio = ""
 ty = ""
 formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4"]
 
+#ELEMENTOS
 etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
                 fg="red",width=91,height=2)
 etiName.place(x=26,y=80)
@@ -58,17 +60,17 @@ etiName.place(x=26,y=80)
 btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)
 btnBusca.place(x=294,y=150)
 
-btnWav = Button(root,text='CONVERTIR A .WAV',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("wav"))
+btnWav = Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav"))
 btnWav.place(x=26,y=230)
-btnMp3 = Button(root,text='CONVERTIR A .MP3',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("mp3"))
+btnMp3 = Button(root,text='CONVERTIR A .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3"))
 btnMp3.place(x=26,y=280)
-btnFlv = Button(root,text='CONVERTIR A .FLV',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("flv"))
+btnFlv = Button(root,text='CONVERTIR A .FLV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("flv"))
 btnFlv.place(x=26,y=330)
-btnOgg = Button(root,text='CONVERTIR A .OGG',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("ogg"))
+btnOgg = Button(root,text='CONVERTIR A .OGG',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("ogg"))
 btnOgg.place(x=380,y=230)
-btnWma = Button(root,text='CONVERTIR A .MP2',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("mp2"))
+btnWma = Button(root,text='CONVERTIR A .MP2',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp2"))
 btnWma.place(x=380,y=280)
-btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground=actf,bg='red',fg='white',width=40,command=lambda:inicia("mp4"))
+btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4"))
 btnMp4.place(x=380,y=330)
 
 root.mainloop()

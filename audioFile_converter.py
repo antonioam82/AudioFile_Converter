@@ -44,8 +44,6 @@ def inicia(tip):
     t = threading.Thread(target=convert)
     t.start()
     
-    
-
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")

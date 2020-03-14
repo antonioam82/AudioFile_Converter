@@ -1,6 +1,14 @@
 from tkinter import *
 import tkinter
+from tkinter import messagebox, filedialog
 import pydub
+
+def busca_archivo():
+    global archivo
+    archivo = ""
+    ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
+    print(ruta)
+    
 
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
@@ -12,7 +20,7 @@ etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
                 fg="red",width=91,height=2)
 etiName.place(x=26,y=80)
 
-btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1')
+btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)
 btnBusca.place(x=294,y=150)
 
 btnWav = Button(root,text='CONVERTIR A .WAV',activeforeground=actf,bg='red',fg='white',width=40)
@@ -30,5 +38,4 @@ btnMp4.place(x=380,y=330)
 
 
 root.mainloop()
-
 

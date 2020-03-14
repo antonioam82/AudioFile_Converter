@@ -7,16 +7,19 @@ from pydub import AudioSegment
 
 def abrir_archivo(ex):
     global audio
-    if ex == ".mp3":
-        audio = AudioSegment.from_mp3(ruta)
-    elif ex == ".ogg":
-        audio = AudioSegment.from_ogg(ruta)
-    elif ex == ".wav":
-        audio = AudioSegment.from_wav(ruta)
-    elif ex == ".flv":
-        audio = AudioSegment.from_flv(ruta)
-    else:
-        audio = AudioSegment.from_file(ruta)
+    try:
+        if ex == ".mp3":
+            audio = AudioSegment.from_mp3(ruta)
+        elif ex == ".ogg":
+            audio = AudioSegment.from_ogg(ruta)
+        elif ex == ".wav":
+            audio = AudioSegment.from_wav(ruta)
+        elif ex == ".flv":
+            audio = AudioSegment.from_flv(ruta)
+        else:
+            audio = AudioSegment.from_file(ruta)
+    except:
+        messagebox.showwarning("ERROR","NO PUDO ABRIRSE EL ARCHIVO")
     print(audio)
     
 

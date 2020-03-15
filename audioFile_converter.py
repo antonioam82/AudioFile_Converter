@@ -82,7 +82,7 @@ estat.place(x=26,y=200)
 btnDir = Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir)
 btnDir.place(x=301,y=420)
 
-btnWav = Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav"))
+btnWav = Button(root,text='CONVERTIR .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav"))
 btnWav.place(x=26,y=240)
 btnMp3 = Button(root,text='CONVERTIR A .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3"))
 btnMp3.place(x=26,y=290)

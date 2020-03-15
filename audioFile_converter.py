@@ -41,7 +41,7 @@ def convert():
             audio.export(nom+"."+ty,format=ty)
             estat.configure(text="PROCESO FIANLIZADO")
         except:
-            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AÑ REALIZAR LA OPERACIÓN")
+            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
 
 def inicia(tip):
     global ty
@@ -82,4 +82,3 @@ btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg=
 btnMp4.place(x=380,y=330)
 
 root.mainloop()
-

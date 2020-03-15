@@ -5,10 +5,6 @@ from tkinter import messagebox, filedialog
 import os
 from pydub import AudioSegment
 
-def estado(e):
-    for i in bts:
-        i.configure(state=e)
-
 def abrir_archivo(ex):
     global audio
     if ex in formatos:
@@ -30,37 +26,41 @@ def dire():
 
 def busca_archivo():
     global nom, ex, ruta
-    estat.configure(text="")
-    file = ""
-    ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
-    if ruta != "":
-        file = ruta.split("/")[-1]
-        nom,ex = os.path.splitext(file)
-        etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
-        abrir_archivo(ex)
+    if executing == False:
+        estat.configure(text="")
+        file = ""
+        ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
+        if ruta != "":
+            file = ruta.split("/")[-1]
+            nom,ex = os.path.splitext(file)
+            etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
+            abrir_archivo(ex)
 
 def cambia_dir():
-    directorio=filedialog.askdirectory()
-    if directorio!="":
-        os.chdir(directorio)
-        currentDir.set(os.getcwd())
+    if executing == False:
+        directorio=filedialog.askdirectory()
+        if directorio!="":
+            os.chdir(directorio)
+            currentDir.set(os.getcwd())
     
 def convert():
+    global executing
     if audio != "":
+        executing = True
         try:
-            estado("disabled")
             estat.configure(text="PROCESO EN CURSO...")
             audio.export(nom+"."+ty,format=ty)
             estat.configure(text="PROCESO FINALIZADO")
-            estado("normal")     
         except:
             messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+        executing=False
 
 def inicia(tip):
     global ty
-    ty=tip
-    t = threading.Thread(target=convert)
-    t.start()
+    if executing == False:
+        ty=tip
+        t = threading.Thread(target=convert)
+        t.start()
 
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
@@ -69,6 +69,7 @@ root.geometry("700x500")
 audio = ""
 currentDir=StringVar()
 ty = ""
+executing = False
 formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4"]
 
 #ELEMENTOS
@@ -99,7 +100,7 @@ btnWma = Button(root,text='CONVERTIR A .MP2',activeforeground='red',bg='red',fg=
 btnWma.place(x=380,y=290)
 btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4"))
 btnMp4.place(x=380,y=340)
-bts = [btnBusca,btnDir,btnWav,btnMp3,btnFlv,btnOgg,btnWma,btnMp4]
+
 dire()
 
 root.mainloop()

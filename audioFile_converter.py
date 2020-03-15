@@ -25,6 +25,7 @@ def abrir_archivo(ex):
 
 def busca_archivo():
     global nom, ex, ruta
+    estat.configure(text="")
     file = ""
     ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
     if ruta != "":
@@ -36,8 +37,9 @@ def busca_archivo():
 def convert():
     if audio != "":
         try:
+            estat.configure(text="PROCESO EN CURSO...")
             audio.export(nom+"."+ty,format=ty)
-            print("FIN")
+            estat.configure(text="PROCESO FIANLIZADO")
         except:
             messagebox.showwarning("ERROR","HUBO UN PROBLEMA AÑ REALIZAR LA OPERACIÓN")
 
@@ -63,6 +65,9 @@ etiName.place(x=26,y=80)
 btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)
 btnBusca.place(x=294,y=150)
 
+estat = Label(root,width=91,bg="gray40",fg="white")
+estat.place(x=26,y=190)
+
 btnWav = Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav"))
 btnWav.place(x=26,y=230)
 btnMp3 = Button(root,text='CONVERTIR A .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3"))
@@ -77,5 +82,4 @@ btnMp4 = Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg=
 btnMp4.place(x=380,y=330)
 
 root.mainloop()
-
 

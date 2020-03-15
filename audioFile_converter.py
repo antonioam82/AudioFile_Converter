@@ -20,7 +20,6 @@ def abrir_archivo(ex):
             audio = AudioSegment.from_file(ruta)
     else:
         messagebox.showwarning("ERROR","FORMATO NO SOPORTADO")
-    print(audio)
 
 def dire():
     currentDir.set(os.getcwd())

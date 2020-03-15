@@ -20,6 +20,7 @@ def abrir_archivo(ex):
             audio = AudioSegment.from_file(ruta)
     else:
         messagebox.showwarning("ERROR","FORMATO NO SOPORTADO")
+    print(audio)
 
 def dire():
     currentDir.set(os.getcwd())
@@ -46,7 +47,7 @@ def convert():
         try:
             estat.configure(text="PROCESO EN CURSO...")
             audio.export(nom+"."+ty,format=ty)
-            estat.configure(text="PROCESO FIANLIZADO")
+            estat.configure(text="PROCESO FINALIZADO")
         except:
             messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
 

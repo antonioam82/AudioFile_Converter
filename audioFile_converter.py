@@ -66,7 +66,7 @@ def inicia(tip):
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
-root.geometry("700x500")
+root.geometry("700x550")
 audio = ""
 currentDir=StringVar()
 ty = ""
@@ -86,7 +86,7 @@ btnBusca.place(x=294,y=160)
 estat = Label(root,width=91,bg="gray40",fg="white")
 estat.place(x=26,y=200)
 
-Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir).place(x=303,y=444)
+Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir).place(x=303,y=490)
 Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav")).place(x=26,y=240)
 Button(root,text='CONVERTIR A .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3")).place(x=26,y=290)
 Button(root,text='CONVERTIR A .FLV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("flv")).place(x=26,y=340)

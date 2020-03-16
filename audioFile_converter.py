@@ -47,13 +47,13 @@ def convert():
     global executing
     if audio != "":
         executing = True
-        #try:
-        estat.configure(text="PROCESO EN CURSO...")
-        audio.export(nom+"."+ty,format=ty)
-        estat.configure(text="PROCESO FINALIZADO")
-        #except:
-        messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
-        estat.configure(text="")
+        try:
+            estat.configure(text="PROCESO EN CURSO...")
+            audio.export(nom+"."+ty,format=ty)
+            estat.configure(text="PROCESO FINALIZADO")
+        except:
+            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+            estat.configure(text="")
         executing=False
 
 def inicia(tip):
@@ -71,7 +71,7 @@ audio = ""
 currentDir=StringVar()
 ty = ""
 executing = False
-formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4"]
+formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)
@@ -99,4 +99,5 @@ Button(root,text='CONVERTIR A .WMA',activeforeground='red',bg='red',fg='white',w
 dire()
 
 root.mainloop()
+
 

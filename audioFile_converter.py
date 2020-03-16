@@ -47,12 +47,13 @@ def convert():
     global executing
     if audio != "":
         executing = True
-        try:
-            estat.configure(text="PROCESO EN CURSO...")
-            audio.export(nom+"."+ty,format=ty)
-            estat.configure(text="PROCESO FINALIZADO")
-        except:
-            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+        #try:
+        estat.configure(text="PROCESO EN CURSO...")
+        audio.export(nom+"."+ty,format=ty)
+        estat.configure(text="PROCESO FINALIZADO")
+        #except:
+        messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+        estat.configure(text="")
         executing=False
 
 def inicia(tip):
@@ -85,13 +86,15 @@ btnBusca.place(x=294,y=160)
 estat = Label(root,width=91,bg="gray40",fg="white")
 estat.place(x=26,y=200)
 
-Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir).place(x=301,y=420)
+Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir).place(x=303,y=444)
 Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav")).place(x=26,y=240)
 Button(root,text='CONVERTIR A .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3")).place(x=26,y=290)
 Button(root,text='CONVERTIR A .FLV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("flv")).place(x=26,y=340)
 Button(root,text='CONVERTIR A .OGG',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("ogg")).place(x=380,y=240)
 Button(root,text='CONVERTIR A .MP2',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp2")).place(x=380,y=290)
 Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4")).place(x=380,y=340)
+Button(root,text='CONVERTIR A .AAC',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("aiff")).place(x=26,y=390)
+Button(root,text='CONVERTIR A .WMA',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wma")).place(x=380,y=390)
 
 dire()
 

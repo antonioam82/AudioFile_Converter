@@ -49,8 +49,9 @@ def convert():
         executing = True
         try:
             estat.configure(text="PROCESO EN CURSO...")
-            audio.export(nom+"."+ty,format=ty)
-            estat.configure(text="PROCESO FINALIZADO")
+            name = nom+"."+ty
+            audio.export((name),format=ty)
+            estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
         except:
             messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
             estat.configure(text="")
@@ -81,10 +82,10 @@ etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
 etiName.place(x=26,y=90)
 
 btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)
-btnBusca.place(x=294,y=160)
+btnBusca.place(x=294,y=158)
 
 estat = Label(root,width=91,bg="gray40",fg="white")
-estat.place(x=26,y=200)
+estat.place(x=26,y=190)
 
 Button(root,text="GUARDAR EN...",activebackground='white',activeforeground='green',fg='white',bg ='green',command=cambia_dir).place(x=303,y=490)
 Button(root,text='CONVERTIR A .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav")).place(x=26,y=240)

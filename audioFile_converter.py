@@ -25,7 +25,9 @@ def dire():
     currentDir.set(os.getcwd())
 
 def busca_archivo():
-    global nom, ex, ruta
+    global nom, ex, ruta, audio
+    audio = ""
+    etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
     if executing == False:
         estat.configure(text="")
         file = ""
@@ -56,7 +58,7 @@ def convert():
             messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
             estat.configure(text="")
         executing=False
-
+        
 def inicia(tip):
     global ty
     if executing == False:
@@ -68,7 +70,7 @@ root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
 root.geometry("700x550")
-audio = ""
+#audio = ""
 currentDir=StringVar()
 ty = ""
 executing = False

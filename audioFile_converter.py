@@ -31,7 +31,10 @@ def busca_archivo():
     if executing == False:
         estat.configure(text="")
         file = ""
-        ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO")
+        ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO",filetypes =(("mp3 files","*.mp3")
+                                          ,("wav files","*.wav"),("mp4 files","*.mp4"),("flv files","*.flv")
+                                          ,("ogg files","*.ogg"),("mp2 files","*.mp2"),("aac files","*.aiff")
+                                          ,("wma files","*.wma"),("all files","*.*")))
         if ruta != "":
             file = ruta.split("/")[-1]
             nom,ex = os.path.splitext(file)
@@ -83,7 +86,7 @@ etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
                 fg="red",width=91,height=2)
 etiName.place(x=26,y=90)
 
-btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)
+btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)#
 btnBusca.place(x=294,y=158)
 
 estat = Label(root,width=91,bg="gray40",fg="white")

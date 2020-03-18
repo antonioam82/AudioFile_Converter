@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
 from tkinter import *
 import tkinter
 import threading
@@ -72,7 +70,7 @@ root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
 root.geometry("700x550")
-#audio = ""
+audio = ""
 currentDir=StringVar()
 ty = ""
 executing = False
@@ -104,4 +102,5 @@ Button(root,text='CONVERTIR A .WMA',activeforeground='red',bg='red',fg='white',w
 dire()
 
 root.mainloop()
+
 

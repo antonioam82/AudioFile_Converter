@@ -54,15 +54,15 @@ def convert():
     global executing
     if audio != "":
         executing = True
-        #try:
-        estat.configure(text="PROCESO EN CURSO...")
-        name = nom+"."+ty
-        audio.export((name),format=ty)
-        estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
-        #except:
-            #messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
-            #estat.configure(text="")
-        #executing=False
+        try:
+            estat.configure(text="PROCESO EN CURSO...")
+            name = nom+"."+ty
+            audio.export((name),format=ty)
+            estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
+        except:
+            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+            estat.configure(text="")
+        executing=False
         
 def inicia(tip):
     global ty

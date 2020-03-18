@@ -36,7 +36,7 @@ def busca_archivo():
         ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO",filetypes =(("mp3 files","*.mp3")
                                           ,("wav files","*.wav"),("mp4 files","*.mp4"),("flv files","*.flv")
                                           ,("ogg files","*.ogg"),("mp2 files","*.mp2"),("aac files","*.aiff")
-                                          ,("wma files","*.wma"),("all files","*.*")))
+                                          ,("au files","*.au"),("all files","*.*")))
         if ruta != "":
             file = ruta.split("/")[-1]
             nom,ex = os.path.splitext(file)
@@ -54,15 +54,15 @@ def convert():
     global executing
     if audio != "":
         executing = True
-        try:
-            estat.configure(text="PROCESO EN CURSO...")
-            name = nom+"."+ty
-            audio.export((name),format=ty)
-            estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
-        except:
-            messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
-            estat.configure(text="")
-        executing=False
+        #try:
+        estat.configure(text="PROCESO EN CURSO...")
+        name = nom+"."+ty
+        audio.export((name),format=ty)
+        estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
+        #except:
+            #messagebox.showwarning("ERROR","HUBO UN PROBLEMA AL REALIZAR LA OPERACIÓN")
+            #estat.configure(text="")
+        #executing=False
         
 def inicia(tip):
     global ty
@@ -79,7 +79,7 @@ audio = ""
 currentDir=StringVar()
 ty = ""
 executing = False
-formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".wma"]
+formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".au"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)
@@ -102,10 +102,11 @@ Button(root,text='CONVERTIR A .OGG',activeforeground='red',bg='red',fg='white',w
 Button(root,text='CONVERTIR A .MP2',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp2")).place(x=380,y=290)
 Button(root,text='CONVERTIR A .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4")).place(x=380,y=340)
 Button(root,text='CONVERTIR A .AAC',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("aiff")).place(x=26,y=390)
-Button(root,text='CONVERTIR A .WMA',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wma")).place(x=380,y=390)
+Button(root,text='CONVERTIR A .AU',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("au")).place(x=380,y=390)
 
 dire()
 
 root.mainloop()
+
 
 

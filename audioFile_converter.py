@@ -74,7 +74,7 @@ root.geometry("700x550")
 currentDir=StringVar()
 ty = ""
 executing = False
-formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff"]
+formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".wma"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)
@@ -102,5 +102,4 @@ Button(root,text='CONVERTIR A .WMA',activeforeground='red',bg='red',fg='white',w
 dire()
 
 root.mainloop()
-
 

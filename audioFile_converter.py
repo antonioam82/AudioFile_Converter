@@ -9,7 +9,7 @@ from pydub import AudioSegment
 
 def abrir_archivo(ex):
     global audio
-    if ex in formatos: #NO NECESARIO(?)
+    if ex in formatos: 
         if ex == ".mp3":
             audio = AudioSegment.from_mp3(ruta)
         elif ex == ".ogg":
@@ -79,7 +79,7 @@ audio = ""
 currentDir=StringVar()
 ty = ""
 executing = False
-formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".au"]#NO NECESARIO(?)
+formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".au"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)

@@ -9,17 +9,21 @@ from pydub import AudioSegment
 
 def abrir_archivo(ex):
     global audio
-    if ex in formatos: 
-        if ex == ".mp3":
-            audio = AudioSegment.from_mp3(ruta)
-        elif ex == ".ogg":
-            audio = AudioSegment.from_ogg(ruta)
-        elif ex == ".wav":
-            audio = AudioSegment.from_wav(ruta)
-        elif ex == ".flv":
-            audio = AudioSegment.from_flv(ruta)
-        else:
-            audio = AudioSegment.from_file(ruta)
+    if ex in formatos:
+        try:
+            if ex == ".mp3":
+                audio = AudioSegment.from_mp3(ruta)
+            elif ex == ".ogg":
+                audio = AudioSegment.from_ogg(ruta)
+            elif ex == ".wav":
+                audio = AudioSegment.from_wav(ruta)
+            elif ex == ".flv":
+                audio = AudioSegment.from_flv(ruta)
+            else:
+                audio = AudioSegment.from_file(ruta)
+        except:
+            messagebox.showwarning("ERROR","NO PUDO COMPLETARSE LA ACCIÓN")
+            etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
     else:
         messagebox.showwarning("ERROR","FORMATO NO SOPORTADO")
 
@@ -29,7 +33,7 @@ def dire():
 def busca_archivo():
     global nom, ex, ruta, audio
     audio = ""
-    etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+    etiName.configure(text="IMPORTANDO ARCHIVO...")
     if executing == False:
         estat.configure(text="")
         file = ""
@@ -42,6 +46,8 @@ def busca_archivo():
             nom,ex = os.path.splitext(file)
             etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
             abrir_archivo(ex)
+        else:
+            etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
 
 def cambia_dir():
     if executing == False:

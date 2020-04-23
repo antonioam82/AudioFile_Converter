@@ -31,12 +31,11 @@ def dire():
     currentDir.set(os.getcwd())
 
 def busca_archivo():
-    global nom, ex, ruta, audio
-    audio = ""
+    global nom, ex, ruta, file
     etiName.configure(text="IMPORTANDO ARCHIVO...")
     if executing == False:
         estat.configure(text="")
-        file = ""
+        #file = ""
         ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO",filetypes =(("mp3 files","*.mp3")
                                           ,("wav files","*.wav"),("mp4 files","*.mp4"),("flv files","*.flv")
                                           ,("ogg files","*.ogg"),("mp2 files","*.mp2"),("aac files","*.aiff")
@@ -46,8 +45,11 @@ def busca_archivo():
             nom,ex = os.path.splitext(file)
             etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
             abrir_archivo(ex)
-        else:
-            etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+        else: ###################################################################################################
+            if file == "":
+                etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+            else:
+                etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
 
 def cambia_dir():
     if executing == False:
@@ -113,6 +115,3 @@ Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg=
 dire()
 
 root.mainloop()
-
-
-

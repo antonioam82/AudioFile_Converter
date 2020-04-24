@@ -86,6 +86,7 @@ root.geometry("700x550")
 audio = ""
 currentDir=StringVar()
 ty = ""
+file = ""
 executing = False
 formatos=[".mp3",".wav",".ogg",".flv",".mp2",".mp4",".aiff",".au"]
 
@@ -115,3 +116,4 @@ Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg=
 dire()
 
 root.mainloop()
+

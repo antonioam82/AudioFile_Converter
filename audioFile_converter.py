@@ -23,6 +23,8 @@ def abrir_archivo(ex):
     except:
         messagebox.showwarning("ERROR","NO PUDO COMPLETARSE LA ACCIÓN")
         etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+        nom = ""
+        audio = ""
 
 def dire():
     currentDir.set(os.getcwd())

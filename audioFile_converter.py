@@ -8,7 +8,7 @@ import os
 from pydub import AudioSegment
 
 def abrir_archivo(ex):
-    global audio
+    global audio, nom
     try:
         if ex == ".mp3":
             audio = AudioSegment.from_mp3(ruta)
@@ -23,6 +23,7 @@ def abrir_archivo(ex):
     except:
         messagebox.showwarning("ERROR","NO PUDO COMPLETARSE LA ACCIÓN")
         etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+        nom = ""
         audio = ""
 
 def dire():
@@ -112,5 +113,6 @@ Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg=
 dire()
 
 root.mainloop()
+
 
 

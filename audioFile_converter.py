@@ -44,7 +44,7 @@ def busca_archivo():
             etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))
             abrir_archivo(ex)
         else: 
-            if file == "":
+            if file == "" or nom == "":
                 etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
             else:
                 etiName.configure(text=("ARCHIVO SELECCIONADO: "+file))

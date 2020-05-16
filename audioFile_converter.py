@@ -29,7 +29,6 @@ def abrir_archivo(ex):
     else:
         messagebox.showwarning("ERROR","Formato no soportado")
         etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
-        nom = ""
         audio = ""
 
 def dire():

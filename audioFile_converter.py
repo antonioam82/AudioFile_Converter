@@ -8,20 +8,26 @@ import os
 from pydub import AudioSegment
 
 def abrir_archivo(ex):
-    global audio, nom
-    try:
-        if ex == ".mp3":
-            audio = AudioSegment.from_mp3(ruta)
-        elif ex == ".ogg":
-            audio = AudioSegment.from_ogg(ruta)
-        elif ex == ".wav":
-            audio = AudioSegment.from_wav(ruta)
-        elif ex == ".flv":
-            audio = AudioSegment.from_flv(ruta)
-        else:
-            audio = AudioSegment.from_file(ruta)
-    except:
-        messagebox.showwarning("ERROR","NO PUDO COMPLETARSE LA ACCIÓN")
+    global audio, nom, audio
+    if ex in formatos:
+        try:
+            if ex == ".mp3":
+                audio = AudioSegment.from_mp3(ruta)
+            elif ex == ".ogg":
+                audio = AudioSegment.from_ogg(ruta)
+            elif ex == ".wav":
+                audio = AudioSegment.from_wav(ruta)
+            elif ex == ".flv":
+                audio = AudioSegment.from_flv(ruta)
+            else:
+                audio = AudioSegment.from_file(ruta)
+        except:
+            messagebox.showwarning("ERROR","NO PUDO COMPLETARSE LA ACCIÓN")
+            etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
+            nom = ""
+            audio = ""
+    else:
+        messagebox.showwarning("ERROR","Formato no soportado")
         etiName.configure(text="NINGÚN ARCHIVO SELECCIONADO")
         nom = ""
         audio = ""
@@ -37,7 +43,7 @@ def busca_archivo():
         ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO",filetypes =(("mp3 files","*.mp3")
                                           ,("wav files","*.wav"),("mp4 files","*.mp4"),("flv files","*.flv")
                                           ,("ogg files","*.ogg"),("mp2 files","*.mp2"),("aac files","*.aiff")
-                                          ,("au files","*.au")))
+                                          ,("au files","*.au"),("all files","*")))
         if ruta != "":
             file = ruta.split("/")[-1]
             nom,ex = os.path.splitext(file)
@@ -86,6 +92,8 @@ currentDir=StringVar()
 ty = ""
 file = ""
 executing = False
+
+formatos = [".mp3",".mp4",".wav",".ogg",".flv",".aiff",".mp2",".au"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)

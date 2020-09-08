@@ -62,12 +62,14 @@ def cambia_dir():
             currentDir.set(os.getcwd())
     
 def convert():
-    global executing
+    global executing, file
     if audio != "":
         executing = True
         try:
             estat.configure(text="PROCESO EN CURSO...")
             name = nom+"."+ty
+            if name == file:
+                name = nom+"(audio)"+"."+ty
             audio.export((name),format=ty)
             estat.configure(text="PROCESO FINALIZADO\nARCHIVO CREADO: "+name)
         except:

@@ -90,6 +90,7 @@ root.configure(background="gray40")
 root.geometry("700x550")
 audio = ""
 currentDir=StringVar()
+currentDir.set(os.getcwd())
 ty = ""
 file = ""
 executing = False
@@ -118,8 +119,6 @@ Button(root,text='EXPORTAR A FORMATO .MP2',activeforeground='red',bg='red',fg='w
 Button(root,text='EXPORTAR A FORMATO .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4")).place(x=380,y=340)
 Button(root,text='EXPORTAR A FORMATO .AAC',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("aiff")).place(x=26,y=390)
 Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("au")).place(x=380,y=390)
-
-dire()
 
 root.mainloop()
 

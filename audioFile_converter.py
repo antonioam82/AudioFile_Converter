@@ -42,7 +42,7 @@ def busca_archivo():
         ruta = filedialog.askopenfilename(initialdir="/",title="SELECCIONAR ARCHIVO",filetypes =(("mp3 files","*.mp3")
                                           ,("wav files","*.wav"),("mp4 files","*.mp4"),("flv files","*.flv")
                                           ,("ogg files","*.ogg"),("mp2 files","*.mp2"),("aac files","*.aiff")
-                                          ,("au files","*.au"),("all files","*")))
+                                          ,("au files","*.au"),("M4A files","*.m4a"),("all files","*")))
         if ruta != "":
             file = ruta.split("/")[-1]
             nom,ex = os.path.splitext(file)

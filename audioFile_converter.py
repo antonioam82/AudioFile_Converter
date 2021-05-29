@@ -95,7 +95,7 @@ ty = ""
 file = ""
 executing = False
 
-formatos = [".mp3",".mp4",".wav",".ogg",".flv",".aiff",".mp2",".au"]
+formatos = [".mp3",".mp4",".wav",".ogg",".flv",".aiff",".mp2",".au",".m4a"]
 
 #ELEMENTOS
 entryDir = Entry(root,textvariable=currentDir,width=116)

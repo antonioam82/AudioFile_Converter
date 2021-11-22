@@ -82,7 +82,7 @@ def inicia(tip):
 root = tkinter.Tk()
 root.title("AUDIO FILE CONVERTER")
 root.configure(background="gray40")
-root.geometry("700x500")
+root.geometry("700x265")
 audio = ""
 currentDir=StringVar()
 currentDir.set(os.getcwd())
@@ -97,21 +97,21 @@ entryDir = Entry(root,textvariable=currentDir,width=116)
 entryDir.place(x=0,y=0)
 etiName = Label(root,text='NINGÚN ARCHIVO SELECCIONADO',bg="black",
                 fg="red",width=91,height=2)
-etiName.place(x=26,y=90)
+etiName.place(x=26,y=30)
 
-btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)#
-btnBusca.place(x=294,y=158)
+btnBusca = Button(root,text='BUSCAR ARCHIVO',activebackground='firebrick1',width=90,activeforeground='blue',bg='blue',fg='firebrick1',command=busca_archivo)#
+btnBusca.place(x=27,y=70)
 
 estat = Label(root,width=91,bg="gray40",fg="white")
-estat.place(x=26,y=190)
+estat.place(x=26,y=97)
 
-Button(root,text='EXPORTAR A FORMATO .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav")).place(x=26,y=240)
-Button(root,text='EXPORTAR A FORMATO .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3")).place(x=26,y=290)
-Button(root,text='EXPORTAR A FORMATO .FLV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("flv")).place(x=26,y=340)
-Button(root,text='EXPORTAR A FORMATO .OGG',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("ogg")).place(x=380,y=240)
-Button(root,text='EXPORTAR A FORMATO .MP2',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp2")).place(x=380,y=290)
-Button(root,text='EXPORTAR A FORMATO .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4")).place(x=380,y=340)
-Button(root,text='EXPORTAR A FORMATO .AAC',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("aiff")).place(x=26,y=390)
-Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("au")).place(x=380,y=390)
+Button(root,text='EXPORTAR A FORMATO .WAV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("wav")).place(x=26,y=134)
+Button(root,text='EXPORTAR A FORMATO .MP3',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp3")).place(x=26,y=165)
+Button(root,text='EXPORTAR A FORMATO .FLV',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("flv")).place(x=26,y=196)
+Button(root,text='EXPORTAR A FORMATO .OGG',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("ogg")).place(x=380,y=134)
+Button(root,text='EXPORTAR A FORMATO .MP2',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp2")).place(x=380,y=165)
+Button(root,text='EXPORTAR A FORMATO .MP4',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("mp4")).place(x=380,y=196)
+Button(root,text='EXPORTAR A FORMATO .AAC',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("aiff")).place(x=26,y=227)
+Button(root,text='EXPORTAR A FORMATO    .AU',activeforeground='red',bg='red',fg='white',width=40,command=lambda:inicia("au")).place(x=380,y=227)
 
 root.mainloop()
